@@ -39,6 +39,7 @@ RUN mamba install --quiet --yes \
     fix-permissions /home/$NB_USER
 
 # For this to run, the START_XVFB_AND_VNC variable must be set
+# Otherwise, you must run `xinit -- /usr/bin/Xvfb :1` from a terminal
 ADD --chown=1000:100 xinitrc $HOME/.xinitrc
 ADD start_xvfb_and_vnc.sh /usr/local/bin/before-notebook.d/start_xvfb_and_vnc.sh
 
