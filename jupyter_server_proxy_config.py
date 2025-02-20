@@ -10,7 +10,7 @@ c.ServerProxy.servers = {
    "Virtual-Desktop": {
        "command": [ f"{novnc_dir}/utils/novnc_proxy", "--vnc", "localhost:5900", "--listen", "{port}"],
        "timeout": 30,
-       "launcher_entry": { "path_info": "vnc-client/vnc.html" }
+       "launcher_entry": { "path_info": "Virtual-Desktop/vnc.html" }
    }
 }
 
