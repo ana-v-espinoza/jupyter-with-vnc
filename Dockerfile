@@ -22,9 +22,9 @@ RUN apt-get update && \
       thunar xfdesktop4 xfwm4 xfce4-panel xfce4-session \
       xfce4-appfinder mousepad xfce4-terminal dbus-x11 && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-    # VNC client
-    git clone https://github.com/novnc/novnc --depth=1 $NOVNC_DIR
+    rm -rf /var/lib/apt/lists/* && \
+    # VNC client \
+    git clone https://github.com/novnc/novnc --depth=1 $NOVNC_DIR && \
     chown -R 1000:100 $NOVNC_DIR
 
 USER $NB_UID
@@ -36,7 +36,7 @@ RUN mamba install --quiet --yes \
     rm -rf /home/$NB_USER/.cache/yarn && \
     rm -rf /home/$NB_USER/.node-gyp && \
     fix-permissions $CONDA_DIR && \
-    fix-permissions /home/$NB_USER && \
+    fix-permissions /home/$NB_USER
 
 # For this to run, the START_XVFB_AND_VNC variable must be set
 ADD --chown=1000:100 xinitrc $HOME/.xinitrc
