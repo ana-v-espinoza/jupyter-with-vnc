@@ -33,3 +33,10 @@ If you choose not to include this variable, you must run the following in a
 JupyterLab terminal:
 
 `xinit -- /usr/bin/Xvfb :1`
+
+# Images
+
+![Virtual Desktop card in the JupyterLab Launcher](./images/launcher.png)
+![XFCE Desktop](./images/xfce.png)
+![Awesome Window Manager](./images/awesome.png)
+![Fluxbox Window Manager](./images/fluxbox.png)
