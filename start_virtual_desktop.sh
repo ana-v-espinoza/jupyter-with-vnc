@@ -7,5 +7,6 @@ then
     | tee -a $VD_OUT $VD_ERR
   echo "[[ INFO ]] Jupyter with VNC: $(date '+%F %T') -- Refer to $VD_OUT and $VD_ERR for logging information"
 
+  export XINITRC=/etc/X11/xinit/xinitrc
 	xinit -- /usr/bin/Xvfb :1 1>>"${VD_OUT}" 2>>"${VD_ERR}" &
 fi

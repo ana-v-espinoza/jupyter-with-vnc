@@ -40,11 +40,11 @@ RUN mamba install --quiet --yes \
 
 # For this to run, the START_VIRTUAL_DESKTOP variable must be set
 # Otherwise, you must run `xinit -- /usr/bin/Xvfb :1` from a terminal
-ADD --chown=1000:100 xinitrc $HOME/.xinitrc
+ADD xinitrc /etc/X11/xinit/xinitrc
 ADD start_virtual_desktop.sh /usr/local/bin/before-notebook.d/start_virtual_desktop.sh
 
 # For starting the VNC server and client
-ADD jupyter_server_proxy_config.py /tmp/jupyter_server_proxy_config.py
-RUN cat /tmp/jupyter_server_proxy_config.py >> $HOME/.jupyter/jupyter_server_config.py
+ADD jupyter_server_proxy_config.py /etc/jupyter/jupyter_server_proxy_config.py
+RUN cat /etc/jupyter/jupyter_server_proxy_config.py >> /etc/jupyter/jupyter_server_config.py
 
 USER $NB_UID
